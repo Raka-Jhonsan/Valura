@@ -1,0 +1,9 @@
+[tool.pyright]
+pythonVersion = "3.11"
+stubPath = "typings"
+include = ["src", "tests"]
+
+[tool.basedpyright]
+pythonVersion = "3.11"
+stubPath = "typings"
+include = ["src", "tests"]
