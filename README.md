@@ -3,6 +3,8 @@
 ## Defence Video
 `https://youtu.be/KCKKD0Xi8gg?si=5hzEt3xl8tJSa2hz`
 
+#Commit SHA: cf6b9146c11fb16569705fbace96f985a3ad4d4f
+
 ---
 
 ## Setup
