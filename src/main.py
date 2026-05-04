@@ -193,6 +193,59 @@ async def query(request: QueryRequest):
     )
 
 
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+def home():
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Valura AI</title>
+    </head>
+    <body>
+        <h2>Valura AI Query</h2>
+
+        <input id="query" placeholder="Enter your query" style="width:300px;">
+        <button onclick="sendQuery()">Submit</button>
+
+        <pre id="output"></pre>
+
+        <script>
+        async function sendQuery() {
+            const query = document.getElementById("query").value;
+
+            const response = await fetch("/query", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    query: query,
+                    user_id: "user_001"
+                })
+            });
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            let output = document.getElementById("output");
+            output.textContent = "";
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                output.textContent += chunk;
+            }
+        }
+        </script>
+    </body>
+    </html>
+    """
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("src.main:app", host="0.0.0.0", port=8000, reload=True)
