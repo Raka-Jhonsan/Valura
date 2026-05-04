@@ -1,7 +1,7 @@
 # Valura AI — Team Lead Assignment
 
 ## Defence Video
-`https://www.youtube.com/watch?v=REPLACE_ME`
+`https://youtu.be/KCKKD0Xi8gg?si=5hzEt3xl8tJSa2hz`
 
 ---
 
